@@ -65,7 +65,7 @@ Media Streaming App è un'applicazione web progressiva (PWA) che consente agli u
    docker-compose down
 ## Struttura del Progetto
    radio-app/
-    ├── public/                # File statici e manifest PWA
+    ├── public/               # File statici e manifest PWA
     │   ├── index.html        # Template HTML principale
     │   ├── manifest.json     # Manifest per PWA
     │   └── service-worker.js # Service Worker per funzionalità offline
@@ -93,25 +93,26 @@ Media Streaming App è un'applicazione web progressiva (PWA) che consente agli u
    Chiaro: Interfaccia luminosa per l'uso diurno
    Scuro: Interfaccia scura per ridurre l'affaticamento degli occhi
    Auto: Cambia automaticamente in base alle preferenze del sistema
+   
    ### Localizzazione
    L'interfaccia è disponibile in italiano e inglese, con rilevamento automatico della lingua del browser.
 
    ### Installazione come PWA
    Gli utenti possono installare l'applicazione sui loro dispositivi tramite il pulsante "Installa App" che appare quando l'applicazione è visitata da un browser compatibile.
 
-   ##Contribuire al Progetto
-   Le contribuzioni sono benvenute! Per contribuire:
+## Contribuire al Progetto
+Le contribuzioni sono benvenute! Per contribuire:
 
-   1. Fai un fork del repository
-   2. Crea un branch per la tua feature (git checkout -b feature/nome-feature)
-   3. Committa le tue modifiche (git commit -m 'Aggiungi nuova feature')
-   4. Pusha al branch (git push origin feature/nome-feature)
-   5. Apri una Pull Request
-   
-   ## Licenza
-   Questo progetto è distribuito con licenza MIT. Vedi il file LICENSE per maggiori dettagli.
+1. Fai un fork del repository
+2. Crea un branch per la tua feature (git checkout -b feature/nome-feature)
+3. Committa le tue modifiche (git commit -m 'Aggiungi nuova feature')
+4. Pusha al branch (git push origin feature/nome-feature)
+5. Apri una Pull Request
 
-   ## Contatti
-   Per domande o supporto, contattare il team di sviluppo all'indirizzo email@esempio.com.
+## Licenza
+Questo progetto è distribuito con licenza MIT. Vedi il file LICENSE per maggiori dettagli.
 
-   © 2023 Media Streaming App. Tutti i diritti riservati.
+## Contatti
+Per domande o supporto, contattare il team di sviluppo all'indirizzo email@esempio.com.
+
+© 2023 Media Streaming App. Tutti i diritti riservati.
