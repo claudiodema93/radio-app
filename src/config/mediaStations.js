@@ -19,7 +19,7 @@ const mediaStations = [
     id: 'la-latina',
     name: 'La Latina',
     description: 'Il ritmo dell\'Italia',
-    streamUrl: 'https://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8',
+    streamUrl: 'http://media2.streambrothers.com:8258/antenna1latino',
     logo: '/logos/la-latina.jpg',
     type: 'radio'
   },
