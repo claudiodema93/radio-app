@@ -1,70 +1,117 @@
-# Getting Started with Create React App
+# Media Streaming App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Media Streaming App Logo](public/logo192.png)
 
-## Available Scripts
+## Descrizione
 
-In the project directory, you can run:
+Media Streaming App è un'applicazione web progressiva (PWA) che consente agli utenti di ascoltare stazioni radio e guardare canali Twitch in un'unica interfaccia elegante e intuitiva. L'applicazione è completamente responsive e può essere installata su dispositivi mobili e desktop per un accesso rapido e offline.
 
-### `npm start`
+## Caratteristiche Principali
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎵 Streaming di stazioni radio
+- 📺 Integrazione con canali Twitch
+- 🌓 Tema chiaro/scuro/automatico
+- 🌍 Supporto multilingua (Italiano, Inglese)
+- 📱 Installabile come PWA (Progressive Web App)
+- 🔄 Funzionalità offline tramite Service Worker
+- 🐳 Containerizzazione con Docker
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tecnologie Utilizzate
 
-### `npm test`
+- React.js
+- Styled Components
+- i18next per la localizzazione
+- Service Worker per funzionalità offline
+- Docker per la containerizzazione
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Requisiti di Sistema
 
-### `npm run build`
+- Node.js 14.x o superiore
+- npm 6.x o superiore
+- Docker e Docker Compose (per l'esecuzione containerizzata)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installazione e Avvio
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Sviluppo Locale
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clona il repository:
+   ```bash
+   git clone <url-repository>
+   cd radio-app
+2. Installa le dipendenze:
 
-### `npm run eject`
+   bash
+   Run
+   npm install
+3. Avvia l'applicazione in modalità sviluppo:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   bash
+   Run
+   npm start
+4. L'applicazione sarà disponibile all'indirizzo http://localhost:3000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   Utilizzo con Docker
+5. Costruisci e avvia i container:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   bash
+   Run
+   docker-compose up -d
+6. L'applicazione sarà disponibile all'indirizzo http://localhost.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+7. Per fermare i container:
 
-## Learn More
+   bash
+   Run
+   docker-compose down
+## Struttura del Progetto
+   radio-app/
+    ├── public/                # File statici e manifest PWA
+    │   ├── index.html        # Template HTML principale
+    │   ├── manifest.json     # Manifest per PWA
+    │   └── service-worker.js # Service Worker per funzionalità offline
+    ├── src/
+    │   ├── components/       # Componenti React
+    │   ├── config/           # Configurazioni dell'applicazione
+    │   ├── locales/          # File di traduzione
+    │   │   ├── it/           # Traduzioni in italiano
+    │   │   └── en/           # Traduzioni in inglese
+    │   ├── theme/            # Configurazione dei temi
+    │   └── App.js            # Componente principale
+    ├── Dockerfile            # Configurazione per l'immagine Docker
+    ├── docker-compose.yml    # Configurazione Docker Compose
+    └── README.md             # Documentazione del progetto
+## Funzionalità
+   ### Selezione delle Stazioni
+   L'applicazione permette di filtrare e selezionare tra diverse stazioni radio e canali Twitch. Ogni stazione è rappresentata da una card con logo e nome.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ### Player Multimediale
+   Il player integrato supporta sia stream audio (per le radio) che video (per i canali Twitch), con controlli per la riproduzione e il volume.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ### Temi
+   L'applicazione supporta tre modalità di tema:
 
-### Code Splitting
+   Chiaro: Interfaccia luminosa per l'uso diurno
+   Scuro: Interfaccia scura per ridurre l'affaticamento degli occhi
+   Auto: Cambia automaticamente in base alle preferenze del sistema
+   ### Localizzazione
+   L'interfaccia è disponibile in italiano e inglese, con rilevamento automatico della lingua del browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ### Installazione come PWA
+   Gli utenti possono installare l'applicazione sui loro dispositivi tramite il pulsante "Installa App" che appare quando l'applicazione è visitata da un browser compatibile.
 
-### Analyzing the Bundle Size
+   ##Contribuire al Progetto
+   Le contribuzioni sono benvenute! Per contribuire:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   1. Fai un fork del repository
+   2. Crea un branch per la tua feature (git checkout -b feature/nome-feature)
+   3. Committa le tue modifiche (git commit -m 'Aggiungi nuova feature')
+   4. Pusha al branch (git push origin feature/nome-feature)
+   5. Apri una Pull Request
+   
+   ## Licenza
+   Questo progetto è distribuito con licenza MIT. Vedi il file LICENSE per maggiori dettagli.
 
-### Making a Progressive Web App
+   ## Contatti
+   Per domande o supporto, contattare il team di sviluppo all'indirizzo email@esempio.com.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   © 2023 Media Streaming App. Tutti i diritti riservati.
