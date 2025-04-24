@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  radio-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: radio-app
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    # Volumi per lo sviluppo (opzionale)
+    # volumes:
+    #   - ./src:/app/src
+    environment:
+      - NODE_ENV=production

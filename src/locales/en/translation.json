@@ -1,0 +1,28 @@
+{
+  "app": {
+    "title": "Media Streaming App",
+    "subtitle": "Listen to radio and watch Twitch channels wherever you are",
+    "footer": "All rights reserved."
+  },
+  "player": {
+    "waiting": "Waiting",
+    "playing": "Playing",
+    "paused": "Paused",
+    "loading": "Loading...",
+    "connectionError": "Connection error",
+    "playbackError": "Playback error"
+  },
+  "controls": {
+    "installApp": "Install App"
+  },
+  "filters": {
+    "all": "All",
+    "radio": "Radio",
+    "twitch": "Twitch"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "auto": "Auto"
+  }
+}
