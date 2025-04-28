@@ -1,0 +1,46 @@
+name: React Build and Deploy
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Configura Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Installa dipendenze
+      run: npm ci
+
+    - name: Esegui build
+      run: npm run build
+      env:
+        CI: false # Disabilita il trattamento degli avvisi come errori
+
+    - name: Configura GitHub Pages
+      uses: actions/configure-pages@v3
+
+    - name: Carica artifact per il deployment
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: build/
+
+    - name: Deploy su GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+      if: github.event_name == 'push'
