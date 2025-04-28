@@ -85,7 +85,7 @@ const ProgramsList = ({ setSelectedStation }) => {
               src={program.image} 
               alt={program.name}
               onError={(e) => {
-                e.target.src = 'https://via.placeholder.com/250x150/e52d27/ffffff?text=' + program.name;
+                e.target.src = "/logos/default-media.png";
               }}
             />
             <ProgramInfo>
