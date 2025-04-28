@@ -39,7 +39,7 @@ const StationLogo = styled(motion.img)`
 const MediaPlayer = ({ station }) => {
   // Gestisce l'errore di caricamento delle immagini
   const handleImageError = (e) => {
-    e.target.src = '/logos/default-media.png';
+    e.target.src = '/radioapp/logos/default-media.png';
   };
 
   return (

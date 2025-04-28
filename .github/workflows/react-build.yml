@@ -31,9 +31,3 @@ jobs:
       run: npm run build
       env:
         CI: false # Disabilita il trattamento degli avvisi come errori
-
-    - name: Archivia build
-      uses: actions/upload-artifact@v3
-      with:
-        name: build-files
-        path: build/

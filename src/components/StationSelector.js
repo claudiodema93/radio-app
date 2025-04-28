@@ -111,7 +111,7 @@ const StationSelector = ({ stations, selectedStation, onSelectStation }) => {
 
   // Gestisce l'errore di caricamento delle immagini
   const handleImageError = (e) => {
-    e.target.src = '/logos/default-media.png';
+    e.target.src = '/radioapp/logos/default-media.png';
   };
 
   return (
