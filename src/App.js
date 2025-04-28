@@ -20,6 +20,19 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.text};
     transition: background-color 0.3s ease, color 0.3s ease;
     min-height: 100vh;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+  
+  /* Migliora la leggibilità su schermi piccoli */
+  @media (max-width: 768px) {
+    html {
+      font-size: 16px;
+    }
+    
+    body {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -31,6 +44,10 @@ const AppContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   background-color: ${props => props.theme.background};
+  
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -48,28 +65,35 @@ const Header = styled.header`
   padding: 15px 20px;
   background-color: ${props => props.theme.primary};
   color: white;
+  
+  @media (max-width: 242px) {
+    padding: 10px;
+    flex-wrap: wrap;
+  }
 `;
 
 const Logo = styled.div`
   display: flex;
   align-items: center;
   margin-left: 20px;
+  
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 `;
 
 const LogoImage = styled.img`
-  width: autopx;
+  width: auto;
   height: 40px;
   background-color: white;
   border: 5px solid white;
   border-radius: 5px;
   object-fit: contain;
-`;
-
-const LogoText = styled.h1`
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0;
-  margin-left: 10px;
+  
+  @media (max-width: 768px) {
+    height: 30px;
+    border: 3px solid white;
+  }
 `;
 
 // Animazione per il fade-in
@@ -114,8 +138,12 @@ const ProgramsListContainer = styled.div`
 
 const Main = styled.main`
   padding: 20px;
-  background-color: white;
+  background-color: ${props => props.theme.background};
   position: relative;
+  
+  @media (max-width: 768px) {
+    padding: 15px 10px;
+  }
 `;
 
 const Footer = styled.footer`
@@ -126,16 +154,33 @@ const Footer = styled.footer`
   background-color: ${props => props.theme.primary};
   color: white;
   font-size: 0.9rem;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 10px;
+  }
 `;
 
 const SocialIcons = styled.div`
   display: flex;
   gap: 15px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+  }
 `;
 
 const FooterLinks = styled.div`
   display: flex;
   gap: 20px;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
 `;
 
 const FooterLink = styled.a`
@@ -200,7 +245,7 @@ function App() {
   useEffect(() => {
     if (isElectron()) {
       // Configurazioni specifiche per Electron
-      document.title = "Radio Antenna 1 - Desktop App";
+      document.title = t('app.title');
       
       // Esempio: disabilita il menu contestuale del browser in Electron
       document.addEventListener('contextmenu', (e) => {
@@ -263,9 +308,9 @@ function App() {
               <FooterLink href="https://open.spotify.com/show/4RlTmyKCpixfG0DNsvhfZZ"><i className="fab fa-spotify"></i></FooterLink>
             </SocialIcons>
             <FooterLinks>
-              <FooterLink href="#">Privacy</FooterLink>
-              <FooterLink href="#">FAQ</FooterLink>
-              <FooterLink href="#">Contatti</FooterLink>
+              <FooterLink href="#">{t('footer.privacy')}</FooterLink>
+              <FooterLink href="#">{t('footer.faq')}</FooterLink>
+              <FooterLink href="#">{t('footer.contact')}</FooterLink>
             </FooterLinks>
           </Footer>
         </ContentContainer>

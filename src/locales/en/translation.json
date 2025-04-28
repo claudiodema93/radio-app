@@ -1,8 +1,21 @@
 {
   "app": {
-    "title": "Media Streaming App",
-    "subtitle": "Listen to radio and watch Twitch channels wherever you are",
-    "footer": "All rights reserved."
+    "title": "Radio Antenna Uno Streaming App",
+    "subtitle": "Listen to radio and watch Twitch channels wherever you are"
+  },
+  "navigation": {
+    "home": "Home",
+    "podcasts": "Podcasts",
+    "events": "Events",
+    "abouts": "About",
+    "contact": "Contact",
+    "themes": "Themes",
+    "language": "Language"
+  },
+  "footer": {
+    "faq": "FAQ",
+    "contact": "Contact",
+    "privacy": "Privacy"
   },
   "player": {
     "waiting": "Waiting",
@@ -13,7 +26,9 @@
     "playbackError": "Playback error"
   },
   "controls": {
-    "installApp": "Install App"
+    "installApp": "Install App",
+    "getOnAppStore": "Download from App Store",
+    "getOnPlayStore": "Download from Google Play"
   },
   "filters": {
     "all": "All",

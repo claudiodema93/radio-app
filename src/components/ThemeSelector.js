@@ -58,7 +58,7 @@ const ThemeSelector = ({ closeMenu }) => {
 
   return (
     <ThemeSelectorContainer>
-      <ThemeTitle>Tema</ThemeTitle>
+      <ThemeTitle>{t('navigation.themes')}</ThemeTitle>
       <ThemeButton 
         active={themeMode === 'light'} 
         onClick={() => handleThemeChange('light')}

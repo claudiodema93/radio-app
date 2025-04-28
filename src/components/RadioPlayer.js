@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
-import { ThemeContext } from '../theme/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const PlayerContainer = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const PlayerContainer = styled.div`
 `;
 
 const PlayButton = styled.button`
-  background-color: #e52d27;
+  background-color: ${props => props.theme.primary};
   color: white;
   border: none;
   border-radius: 50%;
@@ -58,13 +58,20 @@ const VolumeSlider = styled.input`
   accent-color: ${props => props.theme.primary};
 `;
 
-const TimeInfo = styled.div`
+const StatusContainer = styled.div`
+  margin-top: 15px;
+  height: 24px;
   display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 500px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StatusText = styled(motion.p)`
   font-size: 0.9rem;
-  color: #666;
+  color: ${props => props.theme.secondary || '#888'};
+  font-style: italic;
+  text-align: center;
+  margin: 0;
 `;
 
 const RadioPlayer = ({ station }) => {
@@ -177,12 +184,21 @@ const RadioPlayer = ({ station }) => {
             value={isMuted ? 0 : volume}
             onChange={handleVolumeChange}
           />
-        </VolumeControl>
+      </VolumeControl>
       
-      <TimeInfo>
-        <span>1:45</span>
-        <span>3:20</span>
-      </TimeInfo>
+      <StatusContainer>
+        <AnimatePresence mode="wait">
+          <StatusText
+            key={status}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+          >
+            {status}
+          </StatusText>
+        </AnimatePresence>
+      </StatusContainer>
       
       <audio ref={audioRef} src={station?.streamUrl} />
     </PlayerContainer>

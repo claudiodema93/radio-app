@@ -42,7 +42,7 @@ const LanguageTitle = styled.div`
 `;
 
 const LanguageSelector = ({ closeMenu }) => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -51,7 +51,7 @@ const LanguageSelector = ({ closeMenu }) => {
 
   return (
     <LanguageSelectorContainer>
-      <LanguageTitle>Lingua</LanguageTitle>
+      <LanguageTitle>{t('navigation.language')}</LanguageTitle>
       <LanguageButton 
         active={i18n.language === 'it'} 
         onClick={() => changeLanguage('it')}

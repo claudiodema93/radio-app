@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import InstallButton from './InstallButton';
 import ThemeSelector from './ThemeSelector';
 import LanguageSelector from './LanguageSelector';
-import { FaHome, FaRadio, FaPodcast, FaCalendarAlt, FaBars, FaTimes } from 'react-icons/fa';
+import { useTranslation } from 'react-i18next';
+import { FaHome, FaPodcast, FaCalendarAlt, FaBars, FaTimes } from 'react-icons/fa';
 
 const Nav = styled.nav`
   position: relative;
@@ -135,6 +136,7 @@ const InstallButtonWrapper = styled.div`
 `;
 
 const Navigation = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -189,13 +191,13 @@ const Navigation = () => {
         
         <MenuItems>
           <MenuItem href="#" onClick={closeMenu}>
-            <FaHome /> Home
+            <FaHome /> {t('navigation.home')}
           </MenuItem>
           <MenuItem href="#" onClick={closeMenu}>
-            <FaPodcast /> Podcast
+            <FaPodcast /> {t('navigation.podcasts')}
           </MenuItem>
           <MenuItem href="#" onClick={closeMenu}>
-            <FaCalendarAlt /> Eventi
+            <FaCalendarAlt /> {t('navigation.events')}
           </MenuItem>
           
           <MenuDivider />
