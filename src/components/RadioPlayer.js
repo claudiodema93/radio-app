@@ -1,44 +1,42 @@
-import React, { useState, useRef, useContext, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 import { FaPlay, FaPause, FaVolumeUp, FaVolumeMute } from 'react-icons/fa';
 import { ThemeContext } from '../theme/ThemeContext';
 
 const PlayerContainer = styled.div`
-  background-color: ${props => props.theme.card};
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: ${props => props.theme.shadow};
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-`;
-
-const Controls = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  padding: 30px 0;
 `;
 
 const PlayButton = styled.button`
-  background-color: ${props => props.theme.primary};
+  background-color: #e52d27;
   color: white;
   border: none;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 20px;
+`;
 
-  &:hover {
-    transform: scale(1.05);
-    background-color: ${props => props.theme.secondary};
-  }
+const ShowTitle = styled.h2`
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
+const ShowHost = styled.p`
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  text-align: center;
 `;
 
 const VolumeControl = styled.div`
@@ -56,27 +54,26 @@ const VolumeButton = styled.button`
 `;
 
 const VolumeSlider = styled.input`
-  width: 100px;
+  width: 100%;
   accent-color: ${props => props.theme.primary};
 `;
 
-const StatusIndicator = styled.div`
+const TimeInfo = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 500px;
   font-size: 0.9rem;
-  color: ${props => props.isPlaying ? 'green' : props.theme.text};
+  color: #666;
 `;
 
-const AudioPlayer = ({ station }) => {
-  const { t } = useTranslation();
+const RadioPlayer = ({ station }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const { t } = useTranslation();
   const [volume, setVolume] = useState(0.8);
   const [isMuted, setIsMuted] = useState(false);
   const [status, setStatus] = useState(t('player.waiting'));
   const audioRef = useRef(null);
-  const { theme } = useContext(ThemeContext);
 
   // Quando cambia la stazione, interrompi la riproduzione e aggiorna lo stato
   useEffect(() => {
@@ -161,12 +158,14 @@ const AudioPlayer = ({ station }) => {
 
   return (
     <PlayerContainer>
-      <Controls>
-        <PlayButton onClick={togglePlay}>
-          {isPlaying ? <FaPause /> : <FaPlay />}
-        </PlayButton>
-        
-        <VolumeControl>
+      <PlayButton onClick={togglePlay}>
+        {isPlaying ? <FaPause /> : <FaPlay />}
+      </PlayButton>
+      
+      <ShowTitle>{station?.name}</ShowTitle>
+      <ShowHost>{station?.description}</ShowHost>
+      
+      <VolumeControl>
           <VolumeButton onClick={toggleMute}>
             {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
           </VolumeButton>
@@ -179,15 +178,15 @@ const AudioPlayer = ({ station }) => {
             onChange={handleVolumeChange}
           />
         </VolumeControl>
-      </Controls>
       
-      <StatusIndicator isPlaying={isPlaying}>
-        {status}
-      </StatusIndicator>
+      <TimeInfo>
+        <span>1:45</span>
+        <span>3:20</span>
+      </TimeInfo>
       
-      <audio ref={audioRef} src={station.streamUrl} preload="none" />
+      <audio ref={audioRef} src={station?.streamUrl} />
     </PlayerContainer>
   );
 };
 
-export default AudioPlayer;
+export default RadioPlayer;

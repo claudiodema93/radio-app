@@ -4,35 +4,18 @@ import { useTranslation } from 'react-i18next';
 import { FaDownload } from 'react-icons/fa';
 import { ThemeContext } from '../theme/ThemeContext';
 
-const InstallButtonContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-`;
-
-const Button = styled.button`
-  background-color: ${props => props.theme.primary};
+const InstallLink = styled.a`
   color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: ${props => props.theme.shadow};
-
+  
   &:hover {
-    background-color: ${props => props.theme.secondary};
-    transform: translateY(-2px);
-  }
-
-  &:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    transform: none;
+    text-decoration: underline;
   }
 `;
 
@@ -95,11 +78,9 @@ const InstallButton = () => {
   }
 
   return (
-    <InstallButtonContainer>
-      <Button onClick={handleInstallClick}>
-        <FaDownload /> {t('controls.installApp')}
-      </Button>
-    </InstallButtonContainer>
+    <InstallLink onClick={handleInstallClick}>
+      <FaDownload /> {t('controls.installApp')}
+    </InstallLink>
   );
 };
 

@@ -1,4 +1,4 @@
-name: React Build
+name: React Build and Deploy
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ main, master ]
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     strategy:
@@ -31,3 +31,16 @@ jobs:
       run: npm run build
       env:
         CI: false # Disabilita il trattamento degli avvisi come errori
+
+    - name: Configura GitHub Pages
+      uses: actions/configure-pages@v3
+
+    - name: Carica artifact per il deployment
+      uses: actions/upload-pages-artifact@v2
+      with:
+        path: build/
+
+    - name: Deploy su GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v2
+      if: github.event_name == 'push'

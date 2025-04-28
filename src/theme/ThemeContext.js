@@ -2,21 +2,21 @@ import React, { createContext, useState, useEffect } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 const lightTheme = {
-  background: '#f5f5f5',
+  primary: '#e52d27',
+  secondary: '#b31217',
+  background: '#ffffff',
+  card: '#f5f5f5',
   text: '#333333',
-  primary: '#2196f3',
-  secondary: '#f50057',
-  card: '#ffffff',
-  shadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+  shadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
 };
 
 const darkTheme = {
-  background: '#121212',
-  text: '#e0e0e0',
-  primary: '#90caf9',
-  secondary: '#f48fb1',
-  card: '#1e1e1e',
-  shadow: '0 4px 8px rgba(255, 255, 255, 0.1)',
+  primary: '#e52d27',
+  secondary: '#b31217',
+  background: '#222222',
+  card: '#333333',
+  text: '#f5f5f5',
+  shadow: '0 4px 8px rgba(0, 0, 0, 0.3)'
 };
 
 export const ThemeContext = createContext();

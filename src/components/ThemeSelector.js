@@ -6,52 +6,76 @@ import { ThemeContext } from '../theme/ThemeContext';
 
 const ThemeSelectorContainer = styled.div`
   display: flex;
-  justify-content: center;
-  margin: 20px 0;
+  flex-direction: column;
+  margin: 10px 0;
 `;
 
 const ThemeButton = styled.button`
-  background-color: ${props => props.active ? props.theme.primary : 'transparent'};
-  color: ${props => props.active ? 'white' : props.theme.text};
-  border: 1px solid ${props => props.theme.primary};
+  background-color: transparent;
+  color: white;
+  border: none;
   border-radius: 4px;
-  padding: 8px 12px;
-  margin: 0 5px;
+  padding: 15px 20px;
+  margin: 0;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease;
-
+  gap: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  text-align: left;
+  width: 100%;
+  
   &:hover {
-    background-color: ${props => props.theme.primary};
-    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
   }
+  
+  svg {
+    font-size: 1.2rem;
+  }
+  
+  ${props => props.active && `
+    background-color: rgba(255, 255, 255, 0.1);
+  `}
 `;
 
-const ThemeSelector = () => {
+const ThemeTitle = styled.div`
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0.8;
+`;
+
+const ThemeSelector = ({ closeMenu }) => {
   const { t } = useTranslation();
   const { themeMode, toggleTheme } = useContext(ThemeContext);
 
+  const handleThemeChange = (mode) => {
+    toggleTheme(mode);
+    if (closeMenu) closeMenu();
+  };
+
   return (
     <ThemeSelectorContainer>
+      <ThemeTitle>Tema</ThemeTitle>
       <ThemeButton 
         active={themeMode === 'light'} 
-        onClick={() => toggleTheme('light')}
+        onClick={() => handleThemeChange('light')}
       >
         <FaSun /> {t('theme.light')}
       </ThemeButton>
       
       <ThemeButton 
         active={themeMode === 'dark'} 
-        onClick={() => toggleTheme('dark')}
+        onClick={() => handleThemeChange('dark')}
       >
         <FaMoon /> {t('theme.dark')}
       </ThemeButton>
       
       <ThemeButton 
         active={themeMode === 'auto'} 
-        onClick={() => toggleTheme('auto')}
+        onClick={() => handleThemeChange('auto')}
       >
         <FaAdjust /> {t('theme.auto')}
       </ThemeButton>
