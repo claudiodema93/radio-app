@@ -4,7 +4,7 @@ const mediaStations = [
     name: 'Antenna Uno',
     description: 'La tua radio preferita',
     streamUrl: 'https://stream15.top-ix.org/antennauno',
-    logo: '/logos/la-radio.jpg',
+    logo: './logos/la-radio.jpg',
     type: 'radio'
   },
   {
@@ -12,7 +12,7 @@ const mediaStations = [
     name: 'La Melodica',
     description: 'Solo musica melodica',
     streamUrl: 'https://media.streambrothers.com:8118/antenna1napoli',
-    logo: '/logos/la-melodica.jpg',
+    logo: './logos/la-melodica.jpg',
     type: 'radio'
   },
   {
@@ -20,7 +20,7 @@ const mediaStations = [
     name: 'La Latina',
     description: 'Solo musica latina',
     streamUrl: 'http://media2.streambrothers.com:8258/antenna1latino',
-    logo: '/logos/la-latina.jpg',
+    logo: './logos/la-latina.jpg',
     type: 'radio'
   },
   // Canali Twitch
@@ -29,7 +29,7 @@ const mediaStations = [
     name: 'Web TV',
     description: 'Guarda la diretta',
     channelName: 'radioantenna1',
-    logo: '/logos/tv-la-radio.jpg',
+    logo: './logos/tv-la-radio.jpg',
     type: 'twitch'
   }
 ];
