@@ -2,7 +2,7 @@ const mediaStations = [
   {
     id: 'antennauno',
     name: 'Antenna Uno',
-    description: 'La tua web radio preferita',
+    description: 'La tua radio preferita',
     streamUrl: 'https://stream15.top-ix.org/antennauno',
     logo: '/logos/la-radio.jpg',
     type: 'radio'
@@ -10,7 +10,7 @@ const mediaStations = [
   {
     id: 'la-melodica',
     name: 'La Melodica',
-    description: 'Solo musica italiana',
+    description: 'Solo musica melodica',
     streamUrl: 'https://media.streambrothers.com:8118/antenna1napoli',
     logo: '/logos/la-melodica.jpg',
     type: 'radio'
@@ -18,7 +18,7 @@ const mediaStations = [
   {
     id: 'la-latina',
     name: 'La Latina',
-    description: 'Il ritmo dell\'Italia',
+    description: 'Solo musica latina',
     streamUrl: 'http://media2.streambrothers.com:8258/antenna1latino',
     logo: '/logos/la-latina.jpg',
     type: 'radio'
@@ -27,7 +27,7 @@ const mediaStations = [
   {
     id: 'web-tv',
     name: 'Web TV',
-    description: 'Fumetti, anime e videogiochi',
+    description: 'Guarda la diretta',
     channelName: 'radioantenna1',
     logo: '/logos/tv-la-radio.jpg',
     type: 'twitch'
