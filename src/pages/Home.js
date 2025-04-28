@@ -41,7 +41,7 @@ const ProgramName = styled.h3`
 
 const ProgramDescription = styled.p`
   font-size: 0.9rem;
-  color: #666;
+  color: ${props => props.theme.textSecondary || '#666'};
   margin-bottom: 10px;
 `;
 

@@ -7,6 +7,7 @@ const lightTheme = {
   background: '#ffffff',
   card: '#f5f5f5',
   text: '#333333',
+  textSecondary: '#666',
   shadow: '0 4px 8px rgba(0, 0, 0, 0.1)'
 };
 
@@ -16,6 +17,7 @@ const darkTheme = {
   background: '#222222',
   card: '#333333',
   text: '#f5f5f5',
+  textSecondary: '#666',
   shadow: '0 4px 8px rgba(0, 0, 0, 0.3)'
 };
 

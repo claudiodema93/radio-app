@@ -24,14 +24,14 @@ const ContactLayout = styled.div`
 `;
 
 const ContactInfo = styled.div`
-  background-color: ${props => props.theme.cardBackground || '#f5f5f5'};
+  background-color: ${props => props.theme.card || '#f5f5f5'};
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 const ContactForm = styled.form`
-  background-color: ${props => props.theme.cardBackground || '#f5f5f5'};
+  background-color: ${props => props.theme.card || '#f5f5f5'};
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);

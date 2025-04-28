@@ -20,7 +20,7 @@ const EventsList = styled.div`
 `;
 
 const EventCard = styled(motion.div)`
-  background-color: ${props => props.theme.cardBackground || '#f5f5f5'};
+  background-color: ${props => props.theme.card || '#f5f5f5'};
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -68,7 +68,7 @@ const MetaItem = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
-  color: ${props => props.theme.textSecondary || '#666'};
+  color: ${props => props.theme.text || '#666'};
   font-size: 0.9rem;
 `;
 
@@ -148,7 +148,7 @@ const Events = () => {
             <EventImage 
               src={event.image} 
               alt={event.title}
-              onError={(e) => {e.target.src = '/events/default-event.png'}}
+              onError={(e) => {e.target.src = './events/default-event.png'}}
             />
             <EventInfo>
               <EventTitle>{event.title}</EventTitle>
