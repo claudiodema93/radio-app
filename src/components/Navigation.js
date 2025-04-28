@@ -5,7 +5,7 @@ import ThemeSelector from './ThemeSelector';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
 import { FaHome, FaPodcast, FaCalendarAlt, FaBars, FaTimes } from 'react-icons/fa';
-
+import { motion } from 'framer-motion';
 const Nav = styled.nav`
   position: relative;
   width: 100%;
@@ -130,13 +130,51 @@ const Overlay = styled.div`
   visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
   transition: opacity 0.3s, visibility 0.3s;
 `;
+const NavLink = styled(motion.a)`
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  
+  &.active {
+    font-weight: 700;
+  }
+  
+  &:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+`;
 
+const Indicator = styled(motion.div)`
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+`;
 const InstallButtonWrapper = styled.div`
   margin-top: 10px;
 `;
 
-const Navigation = () => {
+const Navigation = ({ activePage, setActivePage }) => {
   const { t } = useTranslation();
+  const navItems = [
+    { id: 'home', label: t('nav.home', 'Home'), icon: <FaHome /> },
+    { id: 'podcasts', label: t('nav.podcasts', 'Podcast'), icon: <FaPodcast /> },
+    { id: 'events', label: t('nav.events', 'Eventi'), icon: <FaCalendarAlt /> },
+    { id: 'contact', label: t('nav.contact', 'Contatti'), icon: <FaCalendarAlt /> }
+  ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -157,7 +195,7 @@ const Navigation = () => {
     };
 
     document.addEventListener('mousedown', handleClickOutside);
-    
+
     // Blocca lo scrolling del body quando il menu è aperto
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -180,7 +218,7 @@ const Navigation = () => {
       </MobileHeader>
 
       <Overlay isOpen={isMenuOpen} onClick={closeMenu} />
-      
+
       <MobileMenu isOpen={isMenuOpen} ref={menuRef}>
         <MenuHeader>
           <MenuTitle>Radio Antenna 1</MenuTitle>
@@ -188,29 +226,40 @@ const Navigation = () => {
             <FaTimes />
           </CloseButton>
         </MenuHeader>
-        
+
         <MenuItems>
-          <MenuItem href="#" onClick={closeMenu}>
-            <FaHome /> {t('navigation.home')}
-          </MenuItem>
-          <MenuItem href="#" onClick={closeMenu}>
-            <FaPodcast /> {t('navigation.podcasts')}
-          </MenuItem>
-          <MenuItem href="#" onClick={closeMenu}>
-            <FaCalendarAlt /> {t('navigation.events')}
-          </MenuItem>
-          
+          {navItems.map((item) => (
+            <MenuItem key={item.id}>
+              <NavLink
+                onClick={() => {setActivePage(item.id); closeMenu();}}
+                className={activePage === item.id ? 'active' : ''}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.icon} {item.label}
+              </NavLink>
+              {activePage === item.id && (
+                <Indicator
+                  layoutId="navIndicator"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                />
+              )}
+            </MenuItem>
+          ))}
+
           <MenuDivider />
-          
+
           {/* Selettore del tema */}
           <ThemeSelector closeMenu={closeMenu} />
-          
+
           <MenuDivider />
-          
+
           {/* Selettore della lingua */}
           <LanguageSelector closeMenu={closeMenu} />
         </MenuItems>
-        
+
         <MenuFooter>
           <InstallButtonWrapper>
             <InstallButton />

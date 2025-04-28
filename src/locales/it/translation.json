@@ -14,7 +14,7 @@
   },
   "footer": {
     "faq": "FAQ",
-    "contact": "Contact",
+    "contacts": "Contatti",
     "privacy": "Privacy"
   },
   "player": {
@@ -34,5 +34,21 @@
     "light": "Chiaro",
     "dark": "Scuro",
     "auto": "Auto"
+  },
+  "contacts": {
+    "title": "Contatti",
+    "email": "Email",
+    "phone": "Telefono",
+    "address": "Indirizzo",
+    "social": "Social",
+    "form":{
+      "name": "Nome",
+      "message": "Messaggio",
+      "submit": "Invia",
+      "email": "Email",
+      "phone": "Telefono",
+      "subject": "Oggetto",
+      "success": "Messaggio inviato con successo"
+    }
   }
 }
