@@ -50,11 +50,26 @@ const Header = styled.header`
   color: white;
 `;
 
-const Logo = styled.h1`
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+`;
+
+const LogoImage = styled.img`
+  width: autopx;
+  height: 40px;
+  background-color: white;
+  border: 5px solid white;
+  border-radius: 5px;
+  object-fit: contain;
+`;
+
+const LogoText = styled.h1`
   font-size: 1.8rem;
   font-weight: bold;
   margin: 0;
-  margin-left: 20px;
+  margin-left: 10px;
 `;
 
 // Animazione per il fade-in
@@ -71,7 +86,6 @@ const fadeIn = keyframes`
 
 // Animazione per il fade-out
 const fadeOut = keyframes`
-
   from {
     opacity: 1;
     max-height: 500px;
@@ -184,7 +198,9 @@ function App() {
         <ContentContainer>
           <Header>
             <Navigation />
-            <Logo>Radio Antenna 1</Logo>
+            <Logo>
+              <LogoImage src={process.env.PUBLIC_URL + '/logo.png'} alt="Radio Antenna 1 Logo" />
+            </Logo>
           </Header>
 
           <Main>

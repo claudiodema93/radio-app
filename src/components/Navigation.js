@@ -181,7 +181,7 @@ const Navigation = () => {
       
       <MobileMenu isOpen={isMenuOpen} ref={menuRef}>
         <MenuHeader>
-          <MenuTitle>Radio App</MenuTitle>
+          <MenuTitle>Radio Antenna 1</MenuTitle>
           <CloseButton onClick={closeMenu}>
             <FaTimes />
           </CloseButton>
