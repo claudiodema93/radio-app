@@ -4,35 +4,54 @@ import { useTranslation } from 'react-i18next';
 
 const LanguageSelectorContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   margin: 10px 0;
 `;
 
 const LanguageButton = styled.button`
-  background-color: ${props => props.active ? props.theme.primary : 'transparent'};
-  color: ${props => props.active ? 'white' : props.theme.text};
-  border: 1px solid ${props => props.theme.primary};
+  background-color: transparent;
+  color: white;
+  border: none;
   border-radius: 4px;
-  padding: 5px 10px;
-  margin: 0 5px;
+  padding: 15px 20px;
+  margin: 0;
   cursor: pointer;
-  transition: all 0.2s ease;
-
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  text-align: left;
+  width: 100%;
+  
   &:hover {
-    background-color: ${props => props.theme.primary};
-    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
   }
+  
+  ${props => props.active && `
+    background-color: rgba(255, 255, 255, 0.1);
+  `}
 `;
 
-const LanguageSelector = () => {
+const LanguageTitle = styled.div`
+  color: white;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  opacity: 0.8;
+`;
+
+const LanguageSelector = ({ closeMenu }) => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    if (closeMenu) closeMenu();
   };
 
   return (
     <LanguageSelectorContainer>
+      <LanguageTitle>Lingua</LanguageTitle>
       <LanguageButton 
         active={i18n.language === 'it'} 
         onClick={() => changeLanguage('it')}
