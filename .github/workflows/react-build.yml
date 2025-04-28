@@ -1,0 +1,39 @@
+name: React Build
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Configura Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Installa dipendenze
+      run: npm ci
+
+    - name: Esegui build
+      run: npm run build
+      env:
+        CI: false # Disabilita il trattamento degli avvisi come errori
+
+    - name: Archivia build
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: build/
