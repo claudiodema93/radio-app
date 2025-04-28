@@ -147,6 +147,11 @@ const FooterLink = styled.a`
   }
 `;
 
+// Aggiungi questa funzione all'inizio del file, dopo gli import
+const isElectron = () => {
+  return window && window.process && window.process.type;
+};
+
 function App() {
   const { t } = useTranslation();
   // Inizialmente non selezionare nessuna stazione
@@ -190,6 +195,20 @@ function App() {
       }, 2000); // Durata dell'animazione completa
     }
   }, [selectedStation, firstSelection]);
+
+  // Aggiungi questo useEffect per gestire il comportamento specifico di Electron
+  useEffect(() => {
+    if (isElectron()) {
+      // Configurazioni specifiche per Electron
+      document.title = "Radio Antenna 1 - Desktop App";
+      
+      // Esempio: disabilita il menu contestuale del browser in Electron
+      document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+        return false;
+      }, false);
+    }
+  }, []);
 
   return (
     <ThemeProvider>

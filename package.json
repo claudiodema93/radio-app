@@ -2,12 +2,18 @@
   "name": "radio-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://claudiodema93.github.io/radio-app",
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/cli": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
+    "@capacitor/ios": "^7.2.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "electron-is-dev": "^2.0.0",
     "framer-motion": "^12.9.1",
     "i18next": "^25.0.1",
     "i18next-browser-languagedetector": "^8.0.5",
@@ -30,7 +36,48 @@
     "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
+    "preelectron-pack": "npm run build && cp public/electron.js build/",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux",
+    "cap:add:android": "npx cap add android",
+    "cap:add:ios": "npx cap add ios",
+    "cap:sync": "npx cap sync",
+    "cap:open:android": "npx cap open android",
+    "cap:open:ios": "npx cap open ios"
+  },
+  "build": {
+    "appId": "com.radioantenna1.app",
+    "productName": "Radio Antenna 1",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "icon": "build/logo512.png"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/logo512.png"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Audio",
+      "icon": "build/logo512.png"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +98,11 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "electron": "^35.2.1",
+    "electron-builder": "^26.0.12",
+    "gh-pages": "^6.3.0",
+    "wait-on": "^8.0.3"
   }
 }

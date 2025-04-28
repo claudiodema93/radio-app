@@ -85,7 +85,7 @@ const ProgramsList = ({ setSelectedStation }) => {
               src={program.image} 
               alt={program.name}
               onError={(e) => {
-                e.target.src = "/radio-app/logos/default-media.png";
+                e.target.src = "/logos/default-media.png";
               }}
             />
             <ProgramInfo>
