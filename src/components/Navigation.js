@@ -4,7 +4,7 @@ import InstallButton from './InstallButton';
 import ThemeSelector from './ThemeSelector';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
-import { FaHome, FaPodcast, FaCalendarAlt, FaBars, FaTimes, FaHandshake, FaUsers } from 'react-icons/fa';
+import { FaHome, FaCalendarAlt, FaBars, FaTimes, FaHandshake, FaUsers } from 'react-icons/fa';
 import { FaMessage } from 'react-icons/fa6';
 const Nav = styled.nav`
   position: relative;
@@ -139,7 +139,6 @@ const Navigation = ({ activePage, setActivePage }) => {
   const { t } = useTranslation();
   const navItems = [
     { id: 'home', label: t('navigation.home', 'Home'), icon: <FaHome /> },
-    { id: 'podcasts', label: t('navigation.podcasts', 'Podcast'), icon: <FaPodcast /> },
     { id: 'events', label: t('navigation.events', 'Eventi'), icon: <FaCalendarAlt /> },
     { id: 'team', label: t('navigation.team', 'Team'), icon: <FaUsers /> },
     { id: 'partners', label: t('navigation.partners', 'Partners'), icon: <FaHandshake /> },

@@ -6,9 +6,7 @@ import RadioPlayer from './components/RadioPlayer';
 import TwitchPlayer from './components/TwitchPlayer';
 import Navigation from './components/Navigation';
 import { AnimatePresence, motion } from 'framer-motion';
-
 import Home from './pages/Home';
-import Podcasts from './pages/Podcasts';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
 import Partners from './pages/Partners';
@@ -165,8 +163,6 @@ function App() {
 
   const renderContent = () => {
     switch (activePage) {
-      case 'podcasts':
-        return <Podcasts />;
       case 'events':
         return <Events />;
       case 'team':
