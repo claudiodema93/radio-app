@@ -4,8 +4,8 @@ import InstallButton from './InstallButton';
 import ThemeSelector from './ThemeSelector';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
-import { FaHome, FaPodcast, FaCalendarAlt, FaBars, FaTimes } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { FaHome, FaPodcast, FaCalendarAlt, FaBars, FaTimes, FaHandshake, FaUsers } from 'react-icons/fa';
+import { FaMessage } from 'react-icons/fa6';
 const Nav = styled.nav`
   position: relative;
   width: 100%;
@@ -130,39 +130,7 @@ const Overlay = styled.div`
   visibility: ${props => props.isOpen ? 'visible' : 'hidden'};
   transition: opacity 0.3s, visibility 0.3s;
 `;
-const NavLink = styled(motion.a)`
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
-  
-  &.active {
-    font-weight: 700;
-  }
-  
-  &:hover {
-    text-decoration: underline;
-  }
-  
-  @media (max-width: 768px) {
-    padding: 5px;
-    font-size: 0.9rem;
-  }
-`;
 
-const Indicator = styled(motion.div)`
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background-color: white;
-  border-radius: 3px;
-`;
 const InstallButtonWrapper = styled.div`
   margin-top: 10px;
 `;
@@ -170,10 +138,12 @@ const InstallButtonWrapper = styled.div`
 const Navigation = ({ activePage, setActivePage }) => {
   const { t } = useTranslation();
   const navItems = [
-    { id: 'home', label: t('nav.home', 'Home'), icon: <FaHome /> },
-    { id: 'podcasts', label: t('nav.podcasts', 'Podcast'), icon: <FaPodcast /> },
-    { id: 'events', label: t('nav.events', 'Eventi'), icon: <FaCalendarAlt /> },
-    { id: 'contact', label: t('nav.contact', 'Contatti'), icon: <FaCalendarAlt /> }
+    { id: 'home', label: t('navigation.home', 'Home'), icon: <FaHome /> },
+    { id: 'podcasts', label: t('navigation.podcasts', 'Podcast'), icon: <FaPodcast /> },
+    { id: 'events', label: t('navigation.events', 'Eventi'), icon: <FaCalendarAlt /> },
+    { id: 'team', label: t('navigation.team', 'Team'), icon: <FaUsers /> },
+    { id: 'partners', label: t('navigation.partners', 'Partners'), icon: <FaHandshake /> },
+    { id: 'contact', label: t('navigation.contact', 'Contatti'), icon: <FaMessage /> }
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
@@ -229,23 +199,11 @@ const Navigation = ({ activePage, setActivePage }) => {
 
         <MenuItems>
           {navItems.map((item) => (
-            <MenuItem key={item.id}>
-              <NavLink
-                onClick={() => {setActivePage(item.id); closeMenu();}}
-                className={activePage === item.id ? 'active' : ''}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+            <MenuItem key={item.id} onClick={() => {setActivePage(item.id); closeMenu();}}
+            className={activePage === item.id ? 'active' : ''}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}>
                 {item.icon} {item.label}
-              </NavLink>
-              {activePage === item.id && (
-                <Indicator
-                  layoutId="navIndicator"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-              )}
             </MenuItem>
           ))}
 

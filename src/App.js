@@ -5,13 +5,14 @@ import { ThemeProvider } from './theme/ThemeContext';
 import RadioPlayer from './components/RadioPlayer';
 import TwitchPlayer from './components/TwitchPlayer';
 import Navigation from './components/Navigation';
-import ProgramsList from './components/ProgramsList';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import Home from './pages/Home';
 import Podcasts from './pages/Podcasts';
 import Events from './pages/Events';
 import Contact from './pages/Contact';
+import Partners from './pages/Partners';
+import Team from './pages/Team';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -112,11 +113,6 @@ const PlayerContainer = styled.div`
   display: ${props => props.show ? 'block' : 'none'};
 `;
 
-const ProgramsListContainer = styled.div`
-  transition: transform 1.5s ease-in-out;
-  transform: translateY(${props => props.playerVisible ? 'var(--player-height, 0px)' : '0'});
-`;
-
 const Main = styled.main`
   padding: 20px;
   background-color: ${props => props.theme.background};;
@@ -173,6 +169,10 @@ function App() {
         return <Podcasts />;
       case 'events':
         return <Events />;
+      case 'team':
+        return <Team />;
+      case 'partners':
+        return <Partners />;
       case 'contact':
         return <Contact />;
       default:
@@ -245,7 +245,7 @@ function App() {
           <Main>
             <div ref={playerRef}>
               {isFadingOut && previousStation ? (
-                <PlayerContainer show={true} isFadingOut={true}>
+                <PlayerContainer show={true.toString()} isFadingOut={true.toString()}>
                   {previousStation.type === 'radio' && (
                     <RadioPlayer station={previousStation} />
                   )}

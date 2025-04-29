@@ -7,10 +7,14 @@
     "home": "Home",
     "podcasts": "Podcasts",
     "events": "Events",
-    "abouts": "About",
+    "partners": "Partners",
     "contact": "Contact",
-    "themes": "Themes",
-    "language": "Language"
+    "language": "Language",
+    "themes": "Themes"
+  },
+  "partners": {
+    "title": "Our Partners",
+    "visitWebsite": "Visit website"
   },
   "footer": {
     "faq": "FAQ",

@@ -1,10 +1,10 @@
-# Media Streaming App
+# Radio Antenna 1 Streaming App
 
-![Media Streaming App Logo](public/logo192.png)
+![Radio Antenna 1 Streaming App Logo](public/logo192.png)
 
 ## Descrizione
 
-Media Streaming App è un'applicazione web progressiva (PWA) che consente agli utenti di ascoltare stazioni radio e guardare canali Twitch in un'unica interfaccia elegante e intuitiva. L'applicazione è completamente responsive e può essere installata su dispositivi mobili e desktop per un accesso rapido e offline.
+Radio Antenna 1 Streaming App è un'applicazione web progressiva (PWA) che consente agli utenti di ascoltare stazioni radio e guardare canali Twitch in un'unica interfaccia elegante e intuitiva. L'applicazione è completamente responsive e può essere installata su dispositivi mobili e desktop per un accesso rapido e offline.
 
 ## Caratteristiche Principali
 
@@ -63,23 +63,7 @@ Media Streaming App è un'applicazione web progressiva (PWA) che consente agli u
    bash
    Run
    docker-compose down
-## Struttura del Progetto
-   radio-app/
-    ├── public/               # File statici e manifest PWA
-    │   ├── index.html        # Template HTML principale
-    │   ├── manifest.json     # Manifest per PWA
-    │   └── service-worker.js # Service Worker per funzionalità offline
-    ├── src/
-    │   ├── components/       # Componenti React
-    │   ├── config/           # Configurazioni dell'applicazione
-    │   ├── locales/          # File di traduzione
-    │   │   ├── it/           # Traduzioni in italiano
-    │   │   └── en/           # Traduzioni in inglese
-    │   ├── theme/            # Configurazione dei temi
-    │   └── App.js            # Componente principale
-    ├── Dockerfile            # Configurazione per l'immagine Docker
-    ├── docker-compose.yml    # Configurazione Docker Compose
-    └── README.md             # Documentazione del progetto
+   
 ## Funzionalità
    ### Selezione delle Stazioni
    L'applicazione permette di filtrare e selezionare tra diverse stazioni radio e canali Twitch. Ogni stazione è rappresentata da una card con logo e nome.
@@ -113,6 +97,6 @@ Le contribuzioni sono benvenute! Per contribuire:
 Questo progetto è distribuito con licenza MIT. Vedi il file LICENSE per maggiori dettagli.
 
 ## Contatti
-Per domande o supporto, contattare il team di sviluppo all'indirizzo email@esempio.com.
+Per domande o supporto, contattare il team di sviluppo all'indirizzo claudiodema93@gmail.com.
 
-© 2023 Media Streaming App. Tutti i diritti riservati.
+© 2025 Radio antenna 1 Streaming App. Tutti i diritti riservati.
